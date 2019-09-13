@@ -5,7 +5,12 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
-    @contact.save
+    if @contact.valid? #проверка на валидность данных
+      @contact.save # данные введены корректно, сохранение в бд
+    else
+      render action: 'new' # возвращает страницу, если валидация не прошла
+    end
+
   end
 
   private
