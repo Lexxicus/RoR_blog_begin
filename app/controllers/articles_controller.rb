@@ -1,4 +1,9 @@
 class ArticlesController < ApplicationController
+
+  def show
+    @article = Article.find(params[:id])
+  end
+
   def new
 
   end
@@ -7,6 +12,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     if @article.valid? #проверка на валидность данных
       @article.save # данные введены корректно, сохранение в бд
+      redirect_to @article # защита от двойного сабмита
     else
       render action: 'new' # возвращает страницу, если валидация не прошла
     end
