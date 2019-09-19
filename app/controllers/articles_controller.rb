@@ -36,8 +36,8 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
-    @article.destroy
+    @article = Article.find(params[:id])# получение данных из бд
+    @article.destroy # удаление строки из бд 
 
     redirect_to articles_path
   end
