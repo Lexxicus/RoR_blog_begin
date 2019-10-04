@@ -1,4 +1,4 @@
-<h1><%= @article.title %></h1>
+<h1>Название статьи : <%= @article.title %></h1>
 <p>
   <%= @article.text %>
 </p>
@@ -9,17 +9,15 @@
 
 <% @article.comments.each do |comment| %>
 
-    <h2>
-      <%= comment.author %>
-    </h2>
     <p>
-      <%= comment.body %>
+      <%= comment.author %> said: <%= comment.body %> 
     </p>
     
     <hr />
 
 <% end %>
 
+<h3>Добавить коментарий</h3>
 
 <%= form_for([@article, @article.comments.build]) do |f| %>
     <p>
