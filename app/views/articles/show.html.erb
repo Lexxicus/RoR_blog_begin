@@ -20,10 +20,8 @@
 <h3>Добавить коментарий</h3>
 
 <%= form_for([@article, @article.comments.build]) do |f| %>
-    <p>
-      <%= f.label :author %><br />
-      <%= f.text_field :author %>
-    </p>
+
+    <input type="hidden" name="comment[author]" id="comment_author" value="<%= current_user.username %>" />
 
     <p>
       <%= f.label :body %><br />
