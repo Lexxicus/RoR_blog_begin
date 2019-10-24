@@ -5,15 +5,54 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link data-require="bootstrap@*" data-semver="4.1.3" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <script data-require="bootstrap@*" data-semver="4.1.3" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script data-require="jquery@*" data-semver="3.2.1" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css" /><link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <% if user_signed_in? %>
-    Hello, <%= current_user.username %> | <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "Sign In", new_user_session_path %>
-  <% end %>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" <%= link_to "Blog", articles_url %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" <%= link_to "Articles", articles_url %><span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" <%= link_to "Contacts", contacts_url %>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" <%= link_to "About us", about_url %>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" <%= link_to "Term", terms_url %>
+        </li>
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <a class="nav-link disabled" tabindex="-1" aria-disabled="true">Hello, <%= current_user.username %></a>
+            </li>
+            <li>
+              <a class="nav-link"<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+            </li>
+          <% else %>
+            <li>
+              <a class="nav-link"<%= link_to "Sign In", new_user_session_path %>
+            </li>
+          <% end %>
+      </ul>
+      </div>
+  </nav>
+
+
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
