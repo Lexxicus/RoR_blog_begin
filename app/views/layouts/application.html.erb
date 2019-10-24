@@ -25,7 +25,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" <%= link_to "Articles", articles_url %><span class="sr-only">(current)</span></a>
+          <a class="nav-link" <%= link_to "New Articles", new_article_url %><span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" <%= link_to "Contacts", contacts_url %>
@@ -34,21 +34,25 @@
           <a class="nav-link" <%= link_to "About us", about_url %>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" <%= link_to "Term", terms_url %>
+          <a class="nav-link" <%= link_to "Terms", terms_url %>
         </li>
-          <% if user_signed_in? %>
-            <li class="nav-item">
-              <a class="nav-link disabled" tabindex="-1" aria-disabled="true">Hello, <%= current_user.username %></a>
-            </li>
-            <li>
-              <a class="nav-link"<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-            </li>
-          <% else %>
-            <li>
-              <a class="nav-link"<%= link_to "Sign In", new_user_session_path %>
-            </li>
-          <% end %>
       </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+              <li class="nav-item">
+                <a class="nav-link disabled" tabindex="-1" aria-disabled="true">Hello, <%= current_user.username %></a>
+              </li>
+              <li>
+                <a class="nav-link"<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+              </li>
+          <% else %>
+              <li>
+                <a class="nav-link"<%= link_to "Sign In", new_user_session_path %>
+              </li>
+          <% end %>
+        </ul>
+
+
       </div>
   </nav>
 

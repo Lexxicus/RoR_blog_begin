@@ -44,10 +44,10 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
 
-  # защищенная передача параметров title и text
+  # защищенная передача параметров title и text и author
   private
   def article_params
-    params.require(:article).permit(:title, :text)
+    params.require(:article).permit(:title, :text, :author)
   end
 
 end

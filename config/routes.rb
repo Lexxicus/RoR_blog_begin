@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root to: "home#index"
+  root to: "articles#index"
 
-  get '/home/index' => 'home#index'
+  get '/home/index' => 'articles#index'
   get 'terms' => 'pages#terms'
   get 'about' => 'pages#about'
 

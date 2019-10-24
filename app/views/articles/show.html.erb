@@ -30,15 +30,17 @@
 
     <div class="row">
       <div class="col">
-        <h3>Добавить коментарий</h3>
-        <%= form_for([@article, @article.comments.build]) do |f| %>
-            <input type="hidden" name="comment[author]" id="comment_author" value="<%= current_user.username %>" />
-            <p>
-              <%= f.text_area :body %>
-            </p>
-            <p>
-              <%= f.submit %>
-            </p>
+        <% if user_signed_in? %>
+            <h3>Добавить коментарий</h3>
+          <%= form_for([@article, @article.comments.build]) do |f| %>
+              <input type="hidden" name="comment[author]" id="comment_author" value="<%= current_user.username %>" />
+              <p>
+                <%= f.text_area :body %>
+              </p>
+              <p>
+                <%= f.submit %>
+              </p>
+            <% end %>
         <% end %>
       </div>
     </div>
