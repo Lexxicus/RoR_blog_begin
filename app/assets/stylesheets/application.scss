@@ -1,0 +1,10 @@
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+.field_with_errors input {
+    border-color: #B00100;
+}
+
+.field_with_errors textarea {
+    border-color: #B00100;
+}

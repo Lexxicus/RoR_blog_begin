@@ -16,7 +16,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" <%= link_to "Blog", articles_url %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -39,7 +39,7 @@
       </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-              <li class="nav-item">
+              <li class="nav-item active">
                 <a class="nav-link disabled" tabindex="-1" aria-disabled="true">Hello, <%= current_user.username %></a>
               </li>
               <li>
@@ -51,8 +51,6 @@
               </li>
           <% end %>
         </ul>
-
-
       </div>
   </nav>
 
@@ -62,6 +60,8 @@
   <p class="alert"><%= alert %></p>
 
   <body>
+  <div class="container">
     <%= yield %>
+  </div>
   </body>
 </html>

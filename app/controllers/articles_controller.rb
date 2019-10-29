@@ -47,7 +47,7 @@ class ArticlesController < ApplicationController
   # защищенная передача параметров title и text и author
   private
   def article_params
-    params.require(:article).permit(:title, :text, :author)
+    params.require(:article).permit(:title, :text, :author, :user_id)
   end
 
 end

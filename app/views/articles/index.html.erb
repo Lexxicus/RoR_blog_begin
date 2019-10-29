@@ -5,30 +5,28 @@
         <div class="col align-self-center">
           <h4>
             <%= link_to article.title, article_path(article) %>
+            <small>
+              Posted at: <time><%= article.created_at.to_date.strftime("%d %B, %Y")%></time>
+            </small>
           </h4>
         </div>
       </div>
-        <div class="row">
-          <div class="col">
-            <p>
-              <%= article.text %>
-            </p>
-          </div>
-        </div>
-
-
       <div class="row">
-        <div class="col">
-          <% if user_signed_in? %>
-            <p>
-              <%= link_to 'Edit', edit_article_path(article) %>
-              <%= link_to "Destroy", article_path(article), method: :delete, data: { confirm: 'Действительно удалить?'} %>
-            </p>
-          <% end %>
-        </div>
-      </div>
+         <div class="col">
+           <p>
+             <%= article.text %>
+           </p>
+           <% case user_signed_in? && article.author != '' %>
+             <% when article.author == '' %>
+             <% when article.author == current_user.username %>
+               <%= link_to 'Edit', edit_article_path(article) %>
+               <%= link_to "Destroy", article_path(article), method: :delete, data: { confirm: 'Действительно удалить?'} %>
+           <% end %>
+           <% if user_signed_in? %>
 
-
+           <% end %>
+         </div>
+       </div>
   <% end %>
 
 </div>

@@ -16,6 +16,7 @@
               </p>
           <% end %>
           <input type="hidden" name="article[author]" id="article_author" value="<%= current_user.username %>" />
+          <input type="hidden" name="article[user_id]" id="article_user_id" value="<%= current_user.id %>" />
           <p>
             <%= f.label :title %><br />
             <%= f.text_field :title %>
