@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.3'
+ruby '2.5.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
@@ -39,11 +39,11 @@ group :development do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'factory_bot_rails'
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
@@ -59,3 +59,5 @@ gem 'devise'
 gem 'bootstrap', '~> 4.3.1'
 
 gem 'jquery-rails'
+
+
