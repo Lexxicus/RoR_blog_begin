@@ -2,6 +2,8 @@
 require 'spec_helper'
 require 'shoulda-matchers'
 require 'factory_bot_rails'
+require 'support/session_helper'
+require 'support/database_cleaner'
 ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../config/environment', __dir__)
