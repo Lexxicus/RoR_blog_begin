@@ -36,3 +36,5 @@ en:
     contact_us: "Contact Us!"
 
     thank_you: "Thank you!!!"
+
+  hello_user: "Hello, %{name}"
