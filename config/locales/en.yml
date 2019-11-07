@@ -38,3 +38,8 @@ en:
     thank_you: "Thank you!!!"
 
   hello_user: "Hello, %{name}"
+
+  article:
+    new_article: "Enter new article"
+    article_list: "List of Articles"
+    article_edit: "Edit article"
